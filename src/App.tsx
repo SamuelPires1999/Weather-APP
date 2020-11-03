@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
 
-function App() {
+import { RootState } from "./store";
+import Search from "./components/Search";
+import Alert from "./components/Alert";
+import Weather from "./components/Weather";
+import { setAlert } from "./store/actions/alertActions";
+import { setError } from "./store/actions/weatherActions";
+
+const App: FC = () => {
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector(
+    (state: RootState) => state.weather
+  );
+  const alertMsg = useSelector((state: RootState) => state.alert.message);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="has-text-centered">
+      <Search title="Enter a city name" />
+      {loading ? (
+        <h2 className="is-size-3 py-2">Loading...</h2>
+      ) : (
+        data && <Weather data={data} />
+      )}
+      {alertMsg && (
+        <Alert message={alertMsg} onClose={() => dispatch(setAlert(""))} />
+      )}
+      {error && <Alert message={error} onClose={() => dispatch(setError())} />}
     </div>
   );
-}
+};
 
 export default App;
