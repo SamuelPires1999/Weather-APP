@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Setup
+
+- Clone this repository
+- run the command 'npm install'
+- create an Account at "https://openweathermap.org", and get your API key
+- create a '.env' file, with the variable REACT_APP_API_KEY inside of it, and paste your personal API key, follow the example if needed
+- run the command 'npm start' or 'yarn start'
