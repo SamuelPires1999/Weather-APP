@@ -29,7 +29,9 @@ const Weather: FC<WeatherProps> = ({ data }) => {
           </div>
           <div className="level-item has-text-centered">
             <div>
-              <p className="heading">temp</p>
+              <p className="heading">
+                <strong>Temperature</strong>
+              </p>
               <div className="title">
                 <p className="mb-2">{data.main.temp}K</p>
                 <p className="mb-2">
@@ -45,19 +47,25 @@ const Weather: FC<WeatherProps> = ({ data }) => {
           </div>
           <div className="level-item has-text-centered">
             <div>
-              <p className="heading">humidity</p>
+              <p className="heading">
+                <strong>Humidity</strong>
+              </p>
               <p className="title">{data.main.humidity}</p>
             </div>
           </div>
           <div className="level-item has-text-centered">
             <div>
-              <p className="heading">pressure</p>
+              <p className="heading">
+                <strong>Pressure</strong>
+              </p>
               <p className="title">{data.main.pressure}</p>
             </div>
           </div>
           <div className="level-item has-text-centered">
             <div>
-              <p className="heading">wind</p>
+              <p className="heading">
+                <strong>Wind</strong>
+              </p>
               <p className="title">{data.wind.speed} m/s</p>
             </div>
           </div>
